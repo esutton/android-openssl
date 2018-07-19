@@ -1,5 +1,19 @@
 #!/bin/bash
 
+
+# Example: Typial Environment
+# ANDROID_HOME=/Users/edward3/Library/Android/sdk
+# ANDROID_SDK_ROOT=/Users/edward3/Library/Android/sdk
+
+# ANDROID_NDK=/Users/edward3/Library/Android/sdk/ndk-bundle
+# ANDROID_NDK_HOME=/Users/edward3/Library/Android/sdk/ndk-bundle
+# ANDROID_NDK_ROOT=/Users/edward3/Library/Android/sdk/ndk-bundle
+
+# standalone ndk ???
+# ANDROID_NDK=$HOME/ndk/arm
+# ANDROID_NDK_HOME=$ANDROID_NDK
+# ANDROID_NDK_ROOT=$ANDROID_NDK
+
 # Architectures to build libraries for
 declare -a ARCHITECTURES=("arm" "armv7a" "x86")
 
@@ -9,8 +23,13 @@ OPENSSL_VERSION="1.0.2j"
 # Set acccording to your Android NDK
 ANDROID_PLATFORM="android-14"
 
-ANDROID_ARM_TOOLCHAIN="arm-linux-androideabi-4.8"
-ANDROID_X86_TOOLCHAIN="x86-4.8"
+ANDROID_ARM_TOOLCHAIN="arm-linux-androideabi-4.9"
+ANDROID_X86_TOOLCHAIN="x86-4.9"
+
+echo "Clean prebuilt libs..."
+rm arch-armeabi/lib/*
+rm arch-armeabi-v7a/lib/*
+rm arch-x86/lib/*
 
 ####################################################################################################
 ## Do not modify below this line unless you know what are you doing
