@@ -21,7 +21,7 @@ declare -a ARCHITECTURES=("arm" "armv7a" "x86")
 OPENSSL_VERSION="1.0.2j"
 
 # Set acccording to your Android NDK
-ANDROID_PLATFORM="android-14"
+ANDROID_PLATFORM="android-18"
 
 ANDROID_ARM_TOOLCHAIN="arm-linux-androideabi-4.9"
 ANDROID_X86_TOOLCHAIN="x86-4.9"
