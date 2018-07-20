@@ -1,18 +1,15 @@
 #!/bin/bash
 
 
-# Example: Typial Environment
-# ANDROID_HOME=/Users/edward3/Library/Android/sdk
-# ANDROID_SDK_ROOT=/Users/edward3/Library/Android/sdk
-
-# ANDROID_NDK=/Users/edward3/Library/Android/sdk/ndk-bundle
-# ANDROID_NDK_HOME=/Users/edward3/Library/Android/sdk/ndk-bundle
-# ANDROID_NDK_ROOT=/Users/edward3/Library/Android/sdk/ndk-bundle
-
-# standalone ndk ???
-# ANDROID_NDK=$HOME/ndk/arm
-# ANDROID_NDK_HOME=$ANDROID_NDK
-# ANDROID_NDK_ROOT=$ANDROID_NDK
+# Example: Typical Environment
+# set |grep ANDROID
+# ANDROID_HOME=$HOME/Library/Android/sdk
+# ANDROID_NDK=$HOME/Library/Android/sdk/ndk-r10e
+# ANDROID_NDK_BUNDLE=$HOME/Library/Android/sdk/ndk-bundle
+# ANDROID_NDK_HOME=$HOME/Library/Android/sdk/ndk-r10e
+# ANDROID_NDK_REACT_NATIVE=$HOME/Library/Android/sdk/ndk-r10e
+# ANDROID_NDK_ROOT=$HOME/Library/Android/sdk/ndk-r10e
+# ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 # Architectures to build libraries for
 declare -a ARCHITECTURES=("arm" "armv7a" "x86")
@@ -23,9 +20,26 @@ OPENSSL_VERSION="1.0.2j"
 # Set acccording to your Android NDK
 ANDROID_PLATFORM="android-14"
 
-ANDROID_ARM_TOOLCHAIN="arm-linux-androideabi-4.8"
-ANDROID_X86_TOOLCHAIN="x86-4.8"
+ANDROID_ARM_TOOLCHAIN="arm-linux-androideabi-4.9"
+ANDROID_X86_TOOLCHAIN="x86-4.9"
 
+
+# on macOS, probably <= r10e should work
+NDK_VERSION=$(cat $ANDROID_NDK/RELEASE.TXT| awk '{print $1;}')
+if [ "$NDK_VERSION" != "r10e" ]; then
+  echo
+  echo "Using: NDK Release Version: ${NDK_VERSION}"
+  echo "       \$ANDROID_NDK=${ANDROID_NDK}"
+  echo
+  echo "*** Warning: macOS build OpenSSL is expected to fail using >= NDK11"
+  echo "Please download Android NDK r10e and update ANDROID_NDK, or modify this script"
+  echo "  https://developer.android.com/ndk/downloads/"
+  echo "  https://developer.android.com/ndk/downloads/older_releases"
+  echo "  https://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip"
+  exit 1
+fi
+
+# Paranoia: Do not use prebuilt openssl libs you found laying about on the Internet
 echo "Clean prebuilt libs..."
 rm arch-armeabi/lib/*
 rm arch-armeabi-v7a/lib/*
