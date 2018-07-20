@@ -29,9 +29,13 @@ jni/openssl/sources/include
 
 ## Notes
 
-On macOS, the OpenSSL build fails when using NDK 11 or greater.
+Advice: Do not use pre-built OpenSSL libs you find laying around the Internet
 
-Work-around is to downlaod an use r10e to build OpenSSL.
+### macOS and Android NDK r10e
+
+On macOS, building OpenSSL fails when using NDK 11 or greater.
+
+Work-around is to download and use r10e to build OpenSSL.
 
 1) Please download Android NDK r10e and update ANDROID_NDK
   * https://developer.android.com/ndk/downloads/older_releases
@@ -40,7 +44,7 @@ Work-around is to downlaod an use r10e to build OpenSSL.
 
 ### Ubuntu 18.04
 
-I could not get OpenSSL to build with this script even after teverting to NDK r10e?
+I could never get OpenSSL to build with this script even after reverting to NDK r10e?
 
 Ubuntu build error "i686-linux-android-gcc: Command not found"
 ````
