@@ -46,7 +46,11 @@ Work-around is to download and use r10e to build OpenSSL.
 1) Please download Android NDK r10e and update ANDROID_NDK
   * https://developer.android.com/ndk/downloads/older_releases
   * https://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
-2) Set NDK to point to r10e  
+2) Copy the extracted downloaded ndk folder to your $ANDROID_SDK folder and rename to ndk-r10e
+3) Set ANDROID_NDK environment variable:
+````
+ANDROID_NDK=$ANDROID_SDK/ndk-r10e
+````
 
 ### Ubuntu 18.04
 
