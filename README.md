@@ -3,7 +3,13 @@
 * Supports build for multiple architectures - ARM, ARMv7, X86
 * Uses OpenSSL source codes
 * Integrated with Android.mk build
-* Contains pre-compiled OpenSSL 1.0.2j (use if you want or compile your own)
+* Output directories for libcrypto and libssl are set in Android.mk
+  * arch-armeabi/lib/
+  * arch-armeabi-v7a/lib/
+  * arch-x86/lib/
+
+**Advice: Do NOT use OpenSSL binaries you find laying about the Internet.**
+
 
 ## How to compile
 
@@ -31,7 +37,7 @@ jni/openssl/sources/include
 
 Advice: Do not use pre-built OpenSSL libs you find laying around the Internet
 
-### macOS and Android NDK r10e
+### macOS Using Android NDK r10e
 
 On macOS, building OpenSSL fails when using NDK 11 or greater.
 
