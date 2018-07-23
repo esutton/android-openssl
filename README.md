@@ -41,11 +41,11 @@ Advice: Do not use pre-built OpenSSL libs you find laying around the Internet
 
 On macOS, building OpenSSL fails when using NDK 11 or greater.
 
-Work-around is to download and use r10e to build OpenSSL.
+Work-around is to download and use Android NDK r10e to build OpenSSL.
 
 1) Please download Android NDK r10e and update ANDROID_NDK
   * https://developer.android.com/ndk/downloads/older_releases
-  * https://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
+  * https://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
 2) Copy the extracted downloaded ndk folder to your $ANDROID_SDK folder and rename to ndk-r10e
 3) Set ANDROID_NDK environment variable:
 ````
