@@ -30,13 +30,15 @@ if [ "$NDK_VERSION" != "r10e" ]; then
   echo
   echo "Using: NDK Release Version: ${NDK_VERSION}"
   echo "       \$ANDROID_NDK=${ANDROID_NDK}"
-  echo
-  echo "*** Warning: macOS build OpenSSL is expected to fail using >= NDK11"
+  echo "***********************************************************************************"
+  echo "* Warning: macOS build OpenSSL is expected to fail using >= NDK11"
+  echo "***********************************************************************************"
   echo "Please download Android NDK r10e and update ANDROID_NDK, or modify this script"
   echo "  https://developer.android.com/ndk/downloads/"
   echo "  https://developer.android.com/ndk/downloads/older_releases"
-  echo "  https://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip"
-  exit 1
+  echo "  https://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip"
+  echo "***********************************************************************************"
+  # exit 1
 fi
 
 # Paranoia: Do not use prebuilt openssl libs you found laying about on the Internet
